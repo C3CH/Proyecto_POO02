@@ -48,17 +48,21 @@ int main(){
     int Cantidad_polos, Cantidad_camisas, Cantidad_cuellos;
     string Telas[Tipos_tela]={"Jersey", "Pique", "Franela"};
     string Pesos_string[9]={};
-    fstream inicio("inicio.txt", ios::in);
+    ifstream inicio("inicio.txt");
 
     Prendas **objetos= nullptr;
     objetos = new Prendas*[Tipos_tela];
 
     float pesos_numeros[9]={};
+
     int contador=0;
+
     while(inicio.is_open()){
       getline(inicio,linea);
       Pesos_string[contador]=linea;
-      istringstream(linea)>>pesos_numeros[contador];
+      float num;
+      istringstream(linea)>>num;
+      pesos_numeros[contador]=num;
       contador++;
     };
 
