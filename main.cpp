@@ -165,4 +165,3 @@ float calculo_costos(float M[][COLUMNAS], size_t FILAS, size_t COLUMNAS, float M
 	cout << "GANACIA TOTAL: ";
 	return (C_VENTA-C_PRODUCCION);
 }
-
