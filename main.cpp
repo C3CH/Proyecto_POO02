@@ -39,15 +39,25 @@ public:
             float peso_polos0, float peso_camisas0, float peso_cuellos0): Prendas(Cantidad_polos0,
                     Cantidad_camisas0, Cantidad_cuellos0, peso_polos0, peso_camisas0, peso_cuellos0){};
 };
+
 const int Tipos_tela=3;
+
 int main(){
     string linea;
     int Cantidad_polos, Cantidad_camisas, Cantidad_cuellos;
-    string Telas[3]={"Jersey", "Pique", "Franela"};
+    string Telas[Tipos_tela]={"Jersey", "Pique", "Franela"};
+    string Pesos_string[9]={};
     fstream inicio("inicio.txt", ios::in);
 
     Prendas **objetos= nullptr;
     objetos = new Prendas*[Tipos_tela];
+    
+    int contador=0;
+    while(inicio.is_open()){
+      getline(inicio,linea);
+      Pesos_string[contador]=linea;
+      contador++;
+    };
 
     for (int i=0; i<Tipos_tela; i++){
       cout<<"Ingrese cantidad de polos para la tela "<<Telas[i]<<" :";
@@ -56,8 +66,6 @@ int main(){
       cin>>Cantidad_camisas;
       cout<<"Ingrese cantidad de cuellos para la tela "<<Telas[i]<<" :";
       cin>>Cantidad_cuellos;
-      getl;
-
 
       if (i==0){objetos[i]=new Jersey(Cantidad_polos, Cantidad_camisas, Cantidad_cuellos);}
       if (i==1){objetos[i]=new Pique(Cantidad_polos, Cantidad_camisas, Cantidad_cuellos);}
