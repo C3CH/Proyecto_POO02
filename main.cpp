@@ -51,7 +51,7 @@ int main(){
 
     Prendas **objetos= nullptr;
     objetos = new Prendas*[Tipos_tela];
-    
+
     int contador=0;
     while(inicio.is_open()){
       getline(inicio,linea);
@@ -59,17 +59,20 @@ int main(){
       contador++;
     };
 
-    for (int i=0; i<Tipos_tela; i++){
-      cout<<"Ingrese cantidad de polos para la tela "<<Telas[i]<<" :";
-      cin>>Cantidad_polos;
-      cout<<"Ingrese cantidad de camisas para la tela "<<Telas[i]<<" :";
-      cin>>Cantidad_camisas;
-      cout<<"Ingrese cantidad de cuellos para la tela "<<Telas[i]<<" :";
-      cin>>Cantidad_cuellos;
+    float pesos_numeros[9]={};
 
-      if (i==0){objetos[i]=new Jersey(Cantidad_polos, Cantidad_camisas, Cantidad_cuellos);}
-      if (i==1){objetos[i]=new Pique(Cantidad_polos, Cantidad_camisas, Cantidad_cuellos);}
-      if (i==2){objetos[i]=new Franela(Cantidad_polos, Cantidad_camisas, Cantidad_cuellos);}
+    for (int i=0; i<Tipos_tela; i++){
+      cout<<"Ingrese cantidad de polos para la tela "<<Telas[i]<<": ";
+      cin>>Cantidad_polos;
+      cout<<"Ingrese cantidad de camisas para la tela "<<Telas[i]<<": ";
+      cin>>Cantidad_camisas;
+      cout<<"Ingrese cantidad de cuellos para la tela "<<Telas[i]<<": ";
+      cin>>Cantidad_cuellos;
+      cout<<endl;
+
+      if (i==0){objetos[i]=new Jersey(Cantidad_polos, Cantidad_camisas, Cantidad_cuellos, pesos_numeros[0],pesos_numeros[1],pesos_numeros[2]);}
+      if (i==1){objetos[i]=new Pique(Cantidad_polos, Cantidad_camisas, Cantidad_cuellos,pesos_numeros[3],pesos_numeros[4],pesos_numeros[5]);}
+      if (i==2){objetos[i]=new Franela(Cantidad_polos, Cantidad_camisas, Cantidad_cuellos,pesos_numeros[6],pesos_numeros[7],pesos_numeros[8]);}
     };
 
     return 0;
