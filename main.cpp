@@ -1,4 +1,5 @@
 #include <iostream>
+#include <sstream>
 #include <fstream>
 #include <string>
 #include <cstddef>
@@ -52,14 +53,16 @@ int main(){
     Prendas **objetos= nullptr;
     objetos = new Prendas*[Tipos_tela];
 
+    float pesos_numeros[9]={};
     int contador=0;
     while(inicio.is_open()){
       getline(inicio,linea);
       Pesos_string[contador]=linea;
+      istringstream(linea)>>pesos_numeros[contador];
       contador++;
     };
 
-    float pesos_numeros[9]={};
+
 
     for (int i=0; i<Tipos_tela; i++){
       cout<<"Ingrese cantidad de polos para la tela "<<Telas[i]<<": ";
